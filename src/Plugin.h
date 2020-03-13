@@ -16,16 +16,13 @@
  */
 
 
-
-#ifndef BRO_PLUGIN_METRON_METRON-BRO-PLUGIN-KAFKA
-#define BRO_PLUGIN_METRON_METRON-BRO-PLUGIN-KAFKA
+#ifndef BRO_PLUGIN_BRO_KAFKA
+#define BRO_PLUGIN_BRO_KAFKA
 
 #include "KafkaWriter.h"
 #include <plugin/Plugin.h>
 
-namespace plugin {
-namespace metron_metron-bro-plugin-kafka {
-
+namespace plugin { namespace Apache_Kafka {
     class Plugin : public ::plugin::Plugin {
     protected:
         // Overridden from plugin::Plugin.

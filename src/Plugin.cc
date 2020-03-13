@@ -17,9 +17,12 @@
 
 #include "Plugin.h"
 
-namespace plugin { namespace metron_metron-bro-plugin-kafka { Plugin plugin; } }
 
-using namespace plugin::metron_metron-bro-plugin-kafka;
+namespace plugin { namespace Apache_Kafka {
+    Plugin plugin;
+}}
+
+using namespace plugin::Apache_Kafka;
 
 plugin::Configuration Plugin::Configure()
 
