@@ -1,4 +1,4 @@
 [package]
-script_dir = scripts/metron/metron-bro-plugin-kafka
+script_dir = scripts/Apache/Kafka
 build_command = ./configure && make
 test_command = cd tests && btest
