@@ -331,3 +331,4 @@ void KafkaWriter::raise_topic_resolved_event(const string topic) {
         vl->append(new StringVal(topic.c_str()));
         mgr.QueueEvent(kafka_topic_resolved_event, vl);
     }
+}
