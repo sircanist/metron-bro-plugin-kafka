@@ -25,7 +25,7 @@ namespace plugin { namespace Apache_Kafka {
 using namespace plugin::Apache_Kafka;
 
 plugin::Configuration Plugin::Configure()
-
+{
     AddComponent(new ::logging::Component("KafkaWriter", ::logging::writer::KafkaWriter::Instantiate));
 
     plugin::Configuration config;
@@ -35,4 +35,4 @@ plugin::Configuration Plugin::Configure()
     config.version.minor = 3;
     return config;
 
-	}
+}
