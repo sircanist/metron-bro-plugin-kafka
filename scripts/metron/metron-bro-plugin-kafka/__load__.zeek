@@ -20,5 +20,5 @@
 # loaded automatically at that point.
 #
 
-@load ./logs-to-kafka.bro
+@load ./logs-to-kafka
 
