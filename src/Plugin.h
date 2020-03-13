@@ -15,13 +15,16 @@
  * limitations under the License.
  */
 
-#ifndef BRO_PLUGIN_BRO_KAFKA
-#define BRO_PLUGIN_BRO_KAFKA
+
+
+#ifndef BRO_PLUGIN_METRON_METRON-BRO-PLUGIN-KAFKA
+#define BRO_PLUGIN_METRON_METRON-BRO-PLUGIN-KAFKA
 
 #include "KafkaWriter.h"
 #include <plugin/Plugin.h>
 
-namespace plugin { namespace Apache_Kafka {
+namespace plugin {
+namespace metron_metron-bro-plugin-kafka {
 
     class Plugin : public ::plugin::Plugin {
     protected:
@@ -30,6 +33,7 @@ namespace plugin { namespace Apache_Kafka {
     };
 
     extern Plugin plugin;
-}}
+  }
+}
 
 #endif

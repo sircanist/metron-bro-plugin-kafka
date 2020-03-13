@@ -9,22 +9,20 @@
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * distributed under the License is distributed on an "AS IS" BASIS, * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
 
+
 #include "Plugin.h"
 
-namespace plugin { namespace Apache_Kafka {
-    Plugin plugin;
-}}
+namespace plugin { namespace metron_metron-bro-plugin-kafka { Plugin plugin; } }
 
-using namespace plugin::Apache_Kafka;
+using namespace plugin::metron_metron-bro-plugin-kafka;
 
 plugin::Configuration Plugin::Configure()
-{
+
     AddComponent(new ::logging::Component("KafkaWriter", ::logging::writer::KafkaWriter::Instantiate));
 
     plugin::Configuration config;
@@ -33,4 +31,5 @@ plugin::Configuration Plugin::Configure()
     config.version.major = 0;
     config.version.minor = 3;
     return config;
-}
+
+	}
