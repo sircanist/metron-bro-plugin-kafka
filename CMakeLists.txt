@@ -1,14 +1,13 @@
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
-cmake_minimum_required(VERSION 2.8)
-
-project(ZeekPluginmetron-bro-plugin-kafka)
+set(PRO_VERSION "0.4")
+project(Plugin)
 
 include(ZeekPlugin)
 find_package(LibRDKafka)
 find_package(OpenSSL)
 
 if (LIBRDKAFKA_FOUND AND OPENSSL_FOUND)
-
   include_directories(BEFORE ${LibRDKafka_INCLUDE_DIR} ${OpenSSL_INCLUDE_DIR})
   zeek_plugin_begin(APACHE KAFKA)
   zeek_plugin_cc(src/KafkaWriter.cc)
@@ -27,7 +26,7 @@ if (LIBRDKAFKA_FOUND AND OPENSSL_FOUND)
   if ("${PROJECT_SOURCE_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}")
       # Allows building rpm/deb packages via "make package" in build dir.
       include(ConfigurePackaging)
-      ConfigurePackaging(${VERSION})
+      ConfigurePackaging(${PRO_VERSION})
   endif ()
 
 elseif (NOT LIBRDKAFKA_FOUND)
@@ -35,5 +34,6 @@ elseif (NOT LIBRDKAFKA_FOUND)
 
 elseif (NOT OPENSSL_FOUND)
   message(FATAL_ERROR "OpenSSL not found.")
+
 
 endif ()

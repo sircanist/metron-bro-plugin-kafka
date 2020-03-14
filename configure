@@ -120,6 +120,21 @@ while [ $# -ne 0 ]; do
     shift
 done
 
+
+if [ -z "$CMakeCommand" ]; then
+    # prefer cmake3 over "regular" cmake (cmake == cmake2 on RHEL)
+    if command -v cmake3 >/dev/null 2>&1 ; then
+        CMakeCommand="cmake3"
+    elif command -v cmake >/dev/null 2>&1 ; then
+        CMakeCommand="cmake"
+    else
+        echo "This package requires CMake, please install it first."
+        echo "Then you may use this script to configure the CMake build."
+        echo "Note: pass --cmake=PATH to use cmake in non-standard locations."
+        exit 1;
+    fi
+fi
+
 if [ -z "$zeekdist" ]; then
     if type zeek-config >/dev/null 2>&1; then
        zeek_config="zeek-config"
@@ -180,6 +195,7 @@ else
     # BRO_DIST is needed to support legacy Bro plugins
     append_cache_entry BRO_DIST  PATH $zeekdist
     append_cache_entry ZEEK_DIST PATH $zeekdist
+    append_cache_entry CMAKE_MODULE_PATH PATH $(pwd)/cmake
     append_cache_entry CMAKE_MODULE_PATH PATH $zeekdist/cmake
 fi
 
